@@ -1,9 +1,4 @@
 ﻿
-1: regex
-2: palindrome
-3: serieNr summa
-4: bitmask
-5: Unique objects
 
 
 

@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text.RegularExpressions;
-using ConsoleApp;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ConsoleApp
@@ -11,22 +11,28 @@ namespace ConsoleApp
         //https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators
         public Test_05()
         {
-            //4: Bygg funktion som kör bitmask AND på första och andra siffran och kontrollerar om summan stämmer med siffra3.
+            //Räkna antalet unika objekt i slaskHinken
 
-            IsValidBitWiseAnd(16, 17, 16, true, "Test_04 : Test1");
-            IsValidBitWiseAnd(100, 200, 64, true, "Test_04 : Test2");
-            IsValidBitWiseAnd(1000, 2000, 960, true, "Test_04 : Test3");
+            List<Object> slaskHinken = new();
+            slaskHinken.Add("överbliven text");
+            slaskHinken.Add("oj oj, vad mycket text det har blivit över");
+            slaskHinken.Add(23);
+            slaskHinken.Add(23);
+            slaskHinken.Add(new int());
+            slaskHinken.Add(new int());
+            slaskHinken.Add((Int64)(int.MaxValue) + 1);
+            slaskHinken.Add((Int64)(int.MaxValue) - 1);
+            slaskHinken.Add(new int[] { 1, 3, 5, 7, 9 });
+            slaskHinken.Add(new int[] { 1, 3, 5, 7, 19 });
 
-            IsValidBitWiseAnd(255, 254, 1, false, "Test_04 : Test5");
-            IsValidBitWiseAnd(0, 0, 1, false, "Test_04 : Test6");
-
+            UniqueItemsController(slaskHinken, 8, true, "Test_05 : Test1");
         }
 
-        public void IsValidBitWiseAnd(int tal1, int tal2, int sum, bool isValid, string message)
+        public void UniqueItemsController(List<Object> items, int uniqueItems, bool correctCount, string message)
         {
             try
             {
-                Assert.AreEqual(BitWiseAnd(tal1, tal2, sum), isValid, message);
+                Assert.AreEqual(ItemsController(items, uniqueItems), correctCount, message);
             }
             catch (Exception e)
             {
@@ -35,21 +41,22 @@ namespace ConsoleApp
             }
         }
 
-        public bool BitWiseAnd(int tal1, int tal2, int sum)
+        public bool ItemsController(List<Object> items, int uniqueItems)
         {
             //YOUR CODE GOES HERE, MAKE ALL ASSERT TESTS PASS
 
-            var tal = tal1 & tal2;
+            //Kan göras med generics och två loopar, eller med distinct
 
+            int countedItems = items.Distinct().Count();
 
-            if (tal == sum)
+            if (countedItems == uniqueItems)
             {
-                Console.WriteLine($"tal: {tal}. sum: {sum} = OK");
+                Console.WriteLine($"countedItems: {countedItems}. uniqueItems: {uniqueItems} = OK");
                 return true;
             }
             else
             {
-                Console.WriteLine($"tal: {tal}. sum: {sum} = EJ OK");
+                Console.WriteLine($"countedItems: {countedItems}. uniqueItems: {uniqueItems} = EJ OK");
                 return false;
             }
         }

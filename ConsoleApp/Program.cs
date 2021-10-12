@@ -18,6 +18,9 @@ namespace ConsoleApp
             Test_04 test_04 = new();
             Console.WriteLine("\n\n");
 
+            Test_05 test_05 = new();
+            Console.WriteLine("\n\n");
+
         }
     }
 }
