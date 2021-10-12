@@ -39,7 +39,6 @@ namespace ConsoleApp
         }
 
 
-
         public bool CheckSerialNr(string serialNr)
         {
             //YOUR CODE GOES HERE
