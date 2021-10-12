@@ -1,0 +1,41 @@
+﻿
+1: regex
+2: palindrome
+3: serieNr summa
+4: bitmask
+5: Unique objects
+
+
+
+
+
+
+
+            //System.Diagnostics.Debugger.Launch();
+
+
+
+
+
+    // Arrange
+    double beginningBalance = 11.99;
+    double debitAmount = 4.55;
+    double expected = 7.44;
+    BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+
+    // Act
+    account.Debit(debitAmount);
+
+    // Assert
+    double actual = account.Balance;
+    Assert.AreEqual(expected, actual, 0.001, "Account not debited correctly");
+
+
+
+            public void AssertSequenceWithValidAllElements()
+        {
+            var source = new[] { 2, 4, 6, 8 };
+            source.Assert(n => n % 2 == 0).AssertSequenceEqual(source);
+        }
+
+
