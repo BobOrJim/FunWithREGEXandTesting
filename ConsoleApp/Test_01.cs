@@ -41,7 +41,7 @@ namespace ConsoleApp
 
         public bool CheckSerialNr(string serialNr)
         {
-            //YOUR CODE GOES HERE
+            //YOUR CODE GOES HERE, MAKE ALL ASSERT TESTS PASS
 
             string pattern = @"[0-9]{2,3}[a-z]{3}[0-9]{2,3}$";
             Regex rgx = new Regex(pattern);

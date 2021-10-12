@@ -11,26 +11,25 @@ namespace ConsoleApp
 
         public Test_03()
         {
-            //Nedan är start och slutsiffra för en nummerserie.
-            //Om digit är med talet, skall talet adderas till summa.
+            //Nedan är start och slutsiffra för en nummerserie. Tex 100, 101, 102.
+            //Om digit är med talet, skall talet adderas till en beräknad summa.
+            //Om beräknad summa matchar sista siffran, är testet sant.
 
-            IsValidSum(100, 102, 2, 102, "Test_03 : Test1");
-            IsValidSum("A Toyota. Race fast, safe car. A Toyota.", true, "Test_02 : Test2");
-            IsValidSum("Draw, O coward!", true, "Test_02 : Test3");
-            IsValidSum("Murder for a jar of red rum.", true, "Test_02 : Test4");
-            IsValidSum("Was it a car or a cat I saw?", true, "Test_02 : Test5");
-            IsValidSum("...Test", false, "Test_02 : Test6");
-            IsValidSum("This article is not useful.", false, "Test_02 : Test7");
-            IsValidSum("Dot Net Perls is not a palindrome.", false, "Test_02 : Test8");
-            IsValidSum("Why are you reading this?", false, "Test_02 : Test9");
+            IsValidSum(100, 102, 2, 102, true, "Test_03 : Test1"); //startsiffraISerie, slutsiffraISerie, digitAttLetaEfter, summaAvTalDärDigitIngår.
+            IsValidSum(1, 20, 9, 28, true, "Test_02 : Test2");
+            IsValidSum(50, 59, 5, 545, true, "Test_02 : Test3");
+            IsValidSum(100, 200, 9, 3286, true, "Test_02 : Test4");
+
+            IsValidSum(1, 8, 9, 100, false, "Test_02 : Test5");
+            IsValidSum(99, 199, 9, 1000, true, "Test_02 : Test6");
+
         }
-        //serieNr summa
 
-        public void IsValidSum(int start, int end, int digit)
+        public void IsValidSum(int start, int end, int digit, int sum, bool isValid, string message)
         {
             try
             {
-                Assert.AreEqual(CheckPalindrome(testString), isValid, message);
+                Assert.AreEqual(CheckSum(start, end, digit, sum), isValid, message);
             }
             catch (Exception e)
             {
@@ -39,6 +38,30 @@ namespace ConsoleApp
             }
         }
 
+        public bool CheckSum(int start, int end, int digit, int sum)
+        {
+            //YOUR CODE GOES HERE, MAKE ALL ASSERT TESTS PASS
+            int accSum = 0;
+
+            for (int i = start; i <= end; i++)
+            {
+                if (i.ToString().Contains(digit.ToString()))
+                {
+                    accSum += i;
+                }
+            }
+
+            if (accSum == sum)
+            {
+                Console.WriteLine($"accSum: {accSum}. sum: {sum} = OK");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"accSum: {accSum}. sum: {sum} = EJ OK");
+                return false;
+            }
+        }
 
     }
 }

@@ -40,7 +40,7 @@ namespace ConsoleApp
 
         public bool CheckPalindrome(string testString)
         {
-            //YOUR CODE GOES HERE
+            //YOUR CODE GOES HERE, MAKE ALL ASSERT TESTS PASS
 
             string letterString = "";
             foreach (char ch in testString.ToLower())
