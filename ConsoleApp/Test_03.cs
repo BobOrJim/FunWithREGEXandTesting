@@ -16,12 +16,12 @@ namespace ConsoleApp
             //Om beräknad summa matchar sista siffran, är testet sant.
 
             IsValidSum(100, 102, 2, 102, true, "Test_03 : Test1"); //startsiffraISerie, slutsiffraISerie, digitAttLetaEfter, summaAvTalDärDigitIngår.
-            IsValidSum(1, 20, 9, 28, true, "Test_02 : Test2");
-            IsValidSum(50, 59, 5, 545, true, "Test_02 : Test3");
-            IsValidSum(100, 200, 9, 3286, true, "Test_02 : Test4");
+            IsValidSum(1, 20, 9, 28, true, "Test_03 : Test2");
+            IsValidSum(50, 59, 5, 545, true, "Test_03 : Test3");
+            IsValidSum(100, 200, 9, 3286, true, "Test_03 : Test4");
 
-            IsValidSum(1, 8, 9, 100, false, "Test_02 : Test5");
-            IsValidSum(99, 199, 9, 1000, true, "Test_02 : Test6");
+            IsValidSum(1, 8, 9, 100, false, "Test_03 : Test5");
+            IsValidSum(99, 199, 9, 1000, false, "Test_03 : Test6");
 
         }
 
